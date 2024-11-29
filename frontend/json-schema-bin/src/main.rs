@@ -56,5 +56,18 @@ fn main() {
         }
     }
 
-    std::fs::rename(&tmp_path, path).unwrap()
+    match std::fs::rename(&tmp_path, path) {
+        Ok(_) => (),
+        Err(e) => {
+            // TODO: Once available in stable, match e.kind() to https://doc.rust-lang.org/stable/std/io/enum.ErrorKind.html#variant.CrossesDevices
+            // instead.
+            if e.to_string()
+                .contains("Invalid cross-device link (os error 18)")
+            {
+                std::fs::copy(&tmp_path, path).unwrap();
+            } else {
+                panic!("Failed to rename: {}", e)
+            }
+        }
+    }
 }

@@ -40,8 +40,8 @@ impl State for VersionedGame {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct JoinRoom {
-    pub(crate) room_name: String,
-    pub(crate) name: String,
+    pub room_name: String,
+    pub name: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]

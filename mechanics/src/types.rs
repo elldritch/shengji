@@ -712,7 +712,7 @@ impl fmt::Debug for Number {
     }
 }
 
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Debug)]
 pub enum Suit {
     Diamonds,
     Clubs,
@@ -775,11 +775,11 @@ impl Suit {
         }
     }
 }
-impl fmt::Debug for Suit {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.as_char())
-    }
-}
+// impl fmt::Debug for Suit {
+//     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+//         write!(f, "{}", self.as_char())
+//     }
+// }
 
 pub const FULL_DECK: [Card; 54] = [
     cards::D_A,

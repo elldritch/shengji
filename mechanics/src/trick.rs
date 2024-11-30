@@ -90,7 +90,7 @@ crate::impl_slog_value!(TractorRequirements);
 
 type Members = Vec<OrderedCard>;
 
-#[derive(Clone, Serialize, Deserialize, JsonSchema, PartialEq, Eq)]
+#[derive(Clone, Serialize, Deserialize, JsonSchema, PartialEq, Eq, Debug)]
 pub enum TrickUnit {
     Tractor { count: usize, members: Members },
     Repeated { count: usize, card: OrderedCard },
@@ -165,11 +165,11 @@ impl TrickUnit {
     }
 }
 
-impl std::fmt::Debug for TrickUnit {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:?}", self.cards())
-    }
-}
+// impl std::fmt::Debug for TrickUnit {
+//     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+//         write!(f, "{:?}", self.cards())
+//     }
+// }
 
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, PartialEq, Eq)]
 pub struct TrickFormat {

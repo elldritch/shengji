@@ -282,7 +282,7 @@ pub struct PropagatedState {
     #[serde(default)]
     pub(crate) hide_throw_halting_player: bool,
     #[serde(default)]
-    pub(crate) tractor_requirements: TractorRequirements,
+    pub tractor_requirements: TractorRequirements,
     #[serde(default)]
     pub(crate) max_rank: MaxRank,
     #[serde(default)]
